@@ -225,8 +225,3 @@ const styles = StyleSheet.create({});
 
 
 
-
-
-git branch -M main
-git remote add origin https://github.com/Abhishekkumarsingh2845/Ecommerce-.git
-git push -u origin main

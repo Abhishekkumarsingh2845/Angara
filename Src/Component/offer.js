@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 1,
     width: '60%',
+    color: 'black',
 
     paddingHorizontal: wp(2),
   },

@@ -12,6 +12,7 @@ import { hp,wp } from '../Utlis/Responsive';
 import Footer from '../Component/Footer';
 
 import Offer from '../Component/offer';
+import Colours from '../Utlis/Colours';
 
 
 const LovedItem = ({image, text1, text2}) => (
@@ -374,10 +375,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: Colours.secondary,
   },
   headerContainer: {
-    backgroundColor: 'black',
+    backgroundColor: Colours.primary,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
@@ -387,7 +388,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontWeight: 'bold',
-    color: 'white',
+    color: Colours.secondary,
   },
   headerImage: {
     width: wp(3),
@@ -395,7 +396,7 @@ const styles = StyleSheet.create({
   },
   navbar: {
     flexDirection: 'row',
-    backgroundColor: 'white',
+    backgroundColor: Colours.secondary,
     justifyContent: 'space-between',
     width: '100%',
     marginTop: hp(2),
@@ -409,7 +410,7 @@ const styles = StyleSheet.create({
   },
   navbarTitle: {
     fontSize: hp(3.5),
-    color: 'black',
+    color: Colours.primary,
     marginTop: hp(0.7),
   },
   navbarIconsContainer: {
@@ -426,10 +427,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: Colours.primary,
     borderRadius: 5,
     paddingHorizontal: wp(3),
-    backgroundColor: 'white',
+    backgroundColor: Colours.secondary,
   },
   searchIcon: {
     width: wp(9),
@@ -440,7 +441,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: hp(2),
-    color: 'black',
+    color: Colours.primary,
   },
   imageGrid: {
     flexDirection: 'row',
@@ -462,7 +463,7 @@ const styles = StyleSheet.create({
     marginTop: hp(1),
     fontSize: hp(2),
     textAlign: 'center',
-    color: 'black',
+    color: Colours.primary,
   },
   bannerImage: {
     width: '70%',
@@ -477,7 +478,7 @@ const styles = StyleSheet.create({
   },
   lovedHeaderText: {
     fontSize: hp(3),
-    color: 'black',
+    color: Colours.primary,
     fontWeight: 'bold',
     marginBottom: hp(2),
   },
@@ -497,17 +498,17 @@ const styles = StyleSheet.create({
     marginTop: hp(1),
     fontSize: hp(2),
     textAlign: 'center',
-    color: 'black',
+    color: Colours.primary,
   },
   customizeButton: {
     marginTop: hp(1),
-    backgroundColor: 'white',
+    backgroundColor: Colours.secondary,
     paddingVertical: hp(1),
     paddingHorizontal: wp(3),
     borderWidth: 1,
   },
   customizeButtonText: {
-    color: 'black',
+    color: Colours.primary,
     fontWeight: '400',
   },
   giftsSection: {
@@ -517,7 +518,7 @@ const styles = StyleSheet.create({
     marginTop: hp(2),
   },
   giftsHeaderText: {
-    color: 'black',
+    color: Colours.primary,
     fontWeight: 'bold',
     fontSize: hp(3),
     textAlign: 'center',
@@ -543,7 +544,7 @@ const styles = StyleSheet.create({
     marginTop: hp(1),
     fontSize: hp(2),
     textAlign: 'center',
-    color: 'black',
+    color: Colours.primary,
     letterSpacing: 1,
   },
   paymentMethodsContainer: {
@@ -561,14 +562,14 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   birthdaySection: {
-    backgroundColor: 'white',
+    backgroundColor: Colours.secondary,
     alignItems: 'center',
     paddingVertical: hp(2),
     marginTop: hp(2),
   },
   birthdayHeaderText: {
     fontWeight: 'bold',
-    color: 'black',
+    color: Colours.primary,
     fontSize: hp(3),
     textAlign: 'center',
     marginBottom: hp(2),
@@ -594,7 +595,7 @@ const styles = StyleSheet.create({
     marginTop: hp(1),
     fontSize: hp(2),
     textAlign: 'center',
-    color: 'black',
+    color: Colours.primary,
   },
   foreverSection: {
     paddingHorizontal: wp(3),
@@ -603,7 +604,7 @@ const styles = StyleSheet.create({
   foreverHeaderText: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: 'black',
+    color: Colours.primary,
     marginBottom: hp(2),
     textAlign: 'center',
   },
@@ -615,12 +616,12 @@ const styles = StyleSheet.create({
   for: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: 'black',
+    color: Colours.primary,
     marginBottom: hp(2),
     textAlign: 'center',
   },
   shopButton: {
-    backgroundColor: 'white',
+    backgroundColor: Colours.secondary,
     paddingVertical: hp(1.5),
     paddingHorizontal: wp(5),
     borderRadius: 5,
@@ -630,7 +631,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   shopButtonText: {
-    color: 'black',
+    color: Colours.primary,
     fontWeight: 'bold',
     fontSize: hp(2.8),
   },
@@ -650,7 +651,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: hp(3),
-    color: 'black',
+    color: Colours.primary,
     alignSelf: 'center',
   },
   contactContainer: {
@@ -672,7 +673,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     marginVertical: 2,
-    color: 'black',
+    color: Colours.primary,
   },
   imageContainer: {width: '100%', height: wp(50), resizeMode: 'cover', marginVertical: hp(2), borderRadius: 2,},
   bannerImage: {width: '100%', height: '100%', resizeMode: 'cover'},
@@ -687,7 +688,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   overlayText: {
-    color: 'white',
+    color: Colours.secondary,
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',

@@ -1,227 +1,629 @@
-import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 import {hp, wp} from './Src/Utlis/Responsive';
-import Search from './Src/Component/Search';
-import CustomBtn from './Src/Component/CustomBtn';
+import Footer from './Src/Component/Footer';
+import Contact from './Src/Component/Contact';
+import Offer from './Src/Component/offer';
+
+const LovedItem = ({image, text1, text2}) => (
+  <View style={styles.lovedItemContainer}>
+    <Image source={image} style={styles.lovedImage} />
+    <Text style={styles.lovedText}>{text1}</Text>
+    <Text style={styles.lovedText}>{text2}</Text>
+    <TouchableOpacity style={styles.customizeButton}>
+      <Text style={styles.customizeButtonText}>Customize Now</Text>
+    </TouchableOpacity>
+  </View>
+);
+
+const GiftItem = ({image, text}) => (
+  <View style={styles.giftItemContainer}>
+    <Image source={image} style={styles.giftImage} />
+    <Text style={styles.giftText}>{text}</Text>
+  </View>
+);
+
+const BirthdayItem = ({image, text}) => (
+  <View style={styles.birthdayItemContainer}>
+    <Image source={image} style={styles.birthdayImage} />
+    <Text style={styles.birthdayText}>{text}</Text>
+  </View>
+);
 
 const App = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        backgroundColor: 'white',
-      }}>
-        <ScrollView>
-      <View
-        style={{
-          backgroundColor: 'black',
-          width: '100%',
-          flexDirection: 'row',
-          justifyContent: 'space-evenly',
-          marginTop: hp(0.5),
-          alignItems: 'center',
-          paddingVertical: hp(2),
-        }}>
-        <Text style={{fontWeight: 'bold', color: 'white'}}>
-          Award-Winning Innovation
-        </Text>
-        <Image
-          source={require('././Src/Assets/Images/cup.png')}
-          style={{width: wp(3), height: hp(3)}}
-        />
-        <Text style={{fontWeight: 'bold', color: 'white'}}>
-          Create with Angara
-        </Text>
-      </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          backgroundColor: 'blue',
-          justifyContent: 'space-evenly',
-          width: '100%',
-        }}>
-        <Image
-          source={require('./Src/Assets/Images/bars.png')}
-          style={{
-            width: wp(6),
-            height: hp(3),
-            resizeMode: 'contain',
-            backgroundColor: 'green',
-          }}
-        />
-        <Text style={{fontSize: hp(3.5)}}>ANGARA</Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            width: '20%',
-            backgroundColor: 'red',
-          }}>
+    <View style={styles.container}>
+      <ScrollView>
+        <View style={styles.headerContainer}>
+          <Text style={styles.headerText}>Award-Winning Innovation</Text>
           <Image
-            source={require('./Src/Assets/Images/heart.png')}
-            style={{width: wp(5), height: hp(5), resizeMode: 'contain'}}
+            source={require('./Src/Assets/Images/cup.png')}
+            style={styles.headerImage}
           />
+          <Text style={styles.headerText}>Create with Angara</Text>
+        </View>
+        <View style={styles.navbar}>
+          <TouchableOpacity>
           <Image
             source={require('./Src/Assets/Images/bars.png')}
-            style={{width: wp(5), height: hp(5), resizeMode: 'contain'}}
+            style={styles.navbarIcon}
+          />
+          </TouchableOpacity>
+          <Text style={styles.navbarTitle}>ANGARA</Text>
+          <View style={styles.navbarIconsContainer}>
+            <TouchableOpacity>
+            <Image
+              source={require('./Src/Assets/Images/heart.png')}
+              style={styles.navbarIcon}
+            />
+            </TouchableOpacity>
+            <TouchableOpacity>
+            <Image
+              source={require('./Src/Assets/Images/purse.png')}
+              style={styles.navbarIcon}
+            />
+              </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.searchContainer}>
+          <View style={styles.searchBar}>
+            <Image
+              source={require('./Src/Assets/Images/search.png')}
+              style={styles.searchIcon}
+            />
+           
+          </View>
+        </View>
+
+        <Image
+          source={require('./Src/Assets/Images/banner.jpg')}
+          style={styles.bannerImage}
+        />
+
+        <View style={styles.imageGrid}>
+          {[
+            {image: require('./Src/Assets/Images/image1.jpg'), text: 'Earning'},
+            {
+              image: require('./Src/Assets/Images/image2.jpg'),
+              text: 'Necklaces',
+            },
+            {
+              image: require('./Src/Assets/Images/image3.jpg'),
+              text: 'Braclets',
+            },
+            {
+              image: require('./Src/Assets/Images/image4.jpg'),
+              text: 'Jewellery',
+            },
+            {
+              image: require('./Src/Assets/Images/image5.jpg'),
+              text: 'Gia Collection',
+            },
+            {image: require('./Src/Assets/Images/image1.jpg'), text: 'Earning'},
+          ].map((item, index) => (
+            <View key={index} style={styles.gridItem}>
+              <Image source={item.image} style={styles.gridImage} />
+              <Text style={styles.gridText}>{item.text}</Text>
+            </View>
+          ))}
+        </View>
+
+        <View style={styles.lovedSection}>
+          <Text style={styles.lovedHeaderText}>Most Loved On Angara</Text>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={styles.lovedImagesContainer}>
+            {[
+              {
+                image: require('./Src/Assets/Images/image7.jpg'),
+                text1: 'Solid Round Diamond',
+                text2: '$1699',
+              },
+              {
+                image: require('./Src/Assets/Images/image8.jpg'),
+                text1: 'Lab Grrown Stackable',
+                text2: '$2341',
+              },
+              {
+                image: require('./Src/Assets/Images/image9.jpg'),
+                text1: 'Oval Cross Ring',
+                text2: '$699',
+              },
+              {
+                image: require('./Src/Assets/Images/image7.jpg'),
+                text1: 'Solid Round Diamond',
+                text2: '$1699',
+              },
+            ].map((item, index) => (
+              <LovedItem
+                key={index}
+                image={item.image}
+                text1={item.text1}
+                text2={item.text2}
+              />
+            ))}
+          </ScrollView>
+        </View>
+
+        <View style={styles.foreverSection}>
+          <Text style={styles.foreverHeaderText}>Forever Starts Here</Text>
+          <Image
+            source={require('./Src/Assets/Images/rings.jpg')}
+            style={styles.foreverImage}
           />
         </View>
-      </View>
 
-      <Search />
-      <View>
-        <View style={{flexDirection: 'row'}}>
-          <View>
-            <Image source={require('./Src/Assets/Images/image1.jpg')} />
-            <Text style={{fontSize: hp(3), color: 'grey', alignSelf: 'center'}}>
-              Rings
-            </Text>
-          </View>
-          <View>
-            <Image source={require('./Src/Assets/Images/image1.jpg')} />
-            <Text style={{fontSize: hp(3), color: 'grey', alignSelf: 'center'}}>
-              Rings
-            </Text>
-          </View>
-          <View>
-            <Image source={require('./Src/Assets/Images/image1.jpg')} />
-            <Text style={{fontSize: hp(3), color: 'grey', alignSelf: 'center'}}>
-              Rings
-            </Text>
-          </View>
-        </View>
-        <View style={{flexDirection: 'row'}}>
-          <View>
-            <Image source={require('./Src/Assets/Images/image1.jpg')} />
-            <Text style={{fontSize: hp(3), color: 'grey', alignSelf: 'center'}}>
-              Rings
-            </Text>
-          </View>
-          <View>
-            <Image source={require('./Src/Assets/Images/image1.jpg')} />
-            <Text style={{fontSize: hp(3), color: 'grey', alignSelf: 'center'}}>
-              Rings
-            </Text>
-          </View>
-          <View>
-            <Image source={require('./Src/Assets/Images/image1.jpg')} />
-            <Text style={{fontSize: hp(3), color: 'grey', alignSelf: 'center'}}>
-              Rings
-            </Text>
-          </View>
-        </View>
-      </View>
-
-
-
-
-
-      <View style={{backgroundColor: 'green', width: '100%'}}>
-        <Text style={{fontWeight: 'bold', color: 'black', alignSelf: 'center'}}>
-          Most Loved On Angara
-        </Text>
-        <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-          <View style={{backgroundColor: 'red'}}>
+        <View style={styles.foreverSection}>
+          <Text style={styles.for}>Engagement Rings</Text>
+          <TouchableOpacity style={styles.shopButton}>
+            <Text style={styles.shopButtonText}>Shop Engagement Rings</Text>
             <Image
-              source={require('./Src/Assets/Images/heart.png')}
-              style={{
-                width: wp(5),
-                height: hp(5),
-                resizeMode: 'contain',
-                alignSelf: 'flex-end',
-              }}
+              source={require('./Src/Assets/Images/downarrow.png')} // Make sure to replace with the correct path
+              style={styles.downArrow}
             />
-             <Image
-              source={require('./Src/Assets/Images/image5.jpg')}
-              style={{
-                width: wp(9),
-                height: hp(9),
-                resizeMode: 'contain',
-                alignSelf: 'center',
-                backgroundColor:'yellow'
-              }}
-            />
-            <Text>Solitaire Round Diamond Infinite </Text>
-            <Text>$669</Text>
-            <CustomBtn/>
-          </View>
-          <View style={{backgroundColor: 'red'}}>
-            <Image
-              source={require('./Src/Assets/Images/heart.png')}
-              style={{
-                width: wp(5),
-                height: hp(5),
-                resizeMode: 'contain',
-                alignSelf: 'flex-end',
-              }}
-            />
-             <Image
-              source={require('./Src/Assets/Images/image5.jpg')}
-              style={{
-                width: wp(9),
-                height: hp(9),
-                resizeMode: 'contain',
-                alignSelf: 'center',
-                backgroundColor:'yellow'
-              }}
-            />
-            <Text>Solitaire Round Diamond Infinite </Text>
-            <Text>$669</Text>
-            <CustomBtn/>
+          </TouchableOpacity>
+          <Image
+            source={require('./Src/Assets/Images/rings2.jpg')}
+            style={styles.foreverImage}
+          />
+        </View>
+
+        <View style={styles.giftsSection}>
+          <Text style={styles.giftsHeaderText}>Gifts That Say It All</Text>
+          <View style={styles.giftsGrid}>
+            {[
+              {
+                image: require('./Src/Assets/Images/img1.jpg'),
+                text: 'Over $2500',
+              },
+              {
+                image: require('./Src/Assets/Images/img2.jpg'),
+                text: 'over $3500',
+              },
+              {
+                image: require('./Src/Assets/Images/img3.jpg'),
+                text: 'over $4500',
+              },
+              {
+                image: require('./Src/Assets/Images/img4.jpg'),
+                text: 'over $5500',
+              },
+              {
+                image: require('./Src/Assets/Images/img5.jpg'),
+                text: 'over $6500',
+              },
+              {
+                image: require('./Src/Assets/Images/img1.jpg'),
+                text: 'over $3500',
+              },
+            ].map((item, index) => (
+              <GiftItem key={index} image={item.image} text={item.text} />
+            ))}
           </View>
         </View>
-      </View>
+        <View style={styles.birthdaySection}>
+          <Text style={styles.birthdayHeaderText}>
+            Make Birthdays More Colorful
+          </Text>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={styles.birthdayScroll}>
+            {[
+              {
+                image: require('./Src/Assets/Images/imagee1.jpg'),
+                text: 'January',
+              },
+              {
+                image: require('./Src/Assets/Images/imagee2.jpg'),
+                text: 'Febuary',
+              },
+              {
+                image: require('./Src/Assets/Images/imagee3.jpg'),
+                text: 'March',
+              },
+              {
+                image: require('./Src/Assets/Images/imagee4.jpg'),
+                text: 'Febuary',
+              },
+              {
+                image: require('./Src/Assets/Images/imagee5.jpg'),
+                text: 'March',
+              },
+            ].map((item, index) => (
+              <BirthdayItem key={index} image={item.image} text={item.text} />
+            ))}
+          </ScrollView>
+        </View>
+        <Offer />
 
+        <View style={styles.contactUsSection}>
+          <Text style={styles.contactHeader}>Contact Us</Text>
+          <View style={styles.contactContainer}>
+            <View style={styles.contactItem}>
+              <Image
+                source={require('./Src/Assets/Images/phone.png')}
+                style={styles.contactImage}
+              />
+              <Text style={styles.contactText}>Call</Text>
+            </View>
+            <View style={styles.contactItem}>
+              <Image
+                source={require('./Src/Assets/Images/email.png')}
+                style={styles.contactImage}
+              />
+              <Text style={styles.contactText}>Email</Text>
+            </View>
+            <View style={styles.contactItem}>
+              <Image
+                source={require('./Src/Assets/Images/comment.png')}
+                style={styles.contactImage}
+              />
+              <Text style={styles.contactText}>Chat</Text>
+            </View>
+          </View>
+        </View>
 
+        <Footer />
 
-
+        <View style={styles.paymentMethodsContainer}>
+          <View style={styles.paymentMethods}>
+            <Image
+              source={require('./Src/Assets/Images/card.png')}
+              style={styles.paymentMethodImage}
+            />
+            <Image
+              source={require('./Src/Assets/Images/visa.png')}
+              style={styles.paymentMethodImage}
+            />
+            <Image
+              source={require('./Src/Assets/Images/master.png')}
+              style={styles.paymentMethodImage}
+            />
+            <Image
+              source={require('./Src/Assets/Images/americanexpress.png')}
+              style={styles.paymentMethodImage}
+            />
+          </View>
+          <View style={styles.paymentMethods}>
+            <Image
+              source={require('./Src/Assets/Images/amazon-pay.png')}
+              style={styles.paymentMethodImage}
+            />
+            <Image
+              source={require('./Src/Assets/Images/card.png')}
+              style={styles.paymentMethodImage}
+            />
+            <Image
+              source={require('./Src/Assets/Images/visa.png')}
+              style={styles.paymentMethodImage}
+            />
+            <Image
+              source={require('./Src/Assets/Images/visa.png')}
+              style={styles.paymentMethodImage}
+            />
+          </View>
+        </View>
       </ScrollView>
-
     </View>
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+  },
+  headerContainer: {
+    backgroundColor: 'black',
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginTop: hp(0.1),
+    alignItems: 'center',
+    paddingVertical: hp(2),
+
+  },
+  headerText: {
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  headerImage: {
+    width: wp(3),
+    height: hp(3),
+  },
+  navbar: {
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    justifyContent: 'space-between',
+    width: '100%',
+    marginTop: hp(2),
+    paddingVertical: hp(1),
+    paddingHorizontal: wp(2),
+  },
+  navbarIcon: {
+    width: wp(7),
+    height: hp(5),
+    resizeMode: 'contain',
+  },
+  navbarTitle: {
+    fontSize: hp(3.5),
+    color: 'black',
+    marginTop:hp(0.7),
+  },
+  navbarIconsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '20%',
+  },
+  searchContainer: {
+    width: '100%',
+    paddingHorizontal: wp(2),
+    marginTop: hp(2),
+  },
+  searchBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius: 5,
+    paddingHorizontal: wp(3),
+    backgroundColor: 'white',
+  },
+  searchIcon: {
+    width: wp(9),
+    height: hp(5),
+    resizeMode: 'contain',
+    marginRight: wp(2),
+  },
+  searchInput: {
+    flex: 1,
+    fontSize: hp(2),
+  },
+  imageGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    padding: wp(2),
+  },
+  gridItem: {
+    width: '30%',
+    alignItems: 'center',
+    marginBottom: hp(2),
+  },
+  gridImage: {
+    width: wp(25),
+    height: hp(20),
+    resizeMode: 'contain',
+  },
+  gridText: {
+    marginTop: hp(1),
+    fontSize: hp(2),
+    textAlign: 'center',
+    color: 'black',
+  },
+  bannerImage: {
+    width: '100%',
+    height: wp(50),
+    resizeMode: 'cover',
+    marginVertical: hp(2),
+    borderRadius: 2,
+  },
+  lovedSection: {
+    alignItems: 'center',
+    marginTop: hp(2),
+  },
+  lovedHeaderText: {
+    fontSize: hp(3),
+    color: 'black',
+    fontWeight: 'bold',
+    marginBottom: hp(2),
+  },
+  lovedImagesContainer: {
+    flexDirection: 'row',
+  },
+  lovedItemContainer: {
+    alignItems: 'center',
+    marginRight: wp(3),
+  },
+  lovedImage: {
+    width: wp(30),
+    height: hp(20),
+    resizeMode: 'contain',
+  },
+  lovedText: {
+    marginTop: hp(1),
+    fontSize: hp(2),
+    textAlign: 'center',
+    color: 'black',
+  },
+  customizeButton: {
+    marginTop: hp(1),
+    backgroundColor: 'white',
+    paddingVertical: hp(1),
+    paddingHorizontal: wp(3),
+    borderWidth: 1,
+  },
+  customizeButtonText: {
+    color: 'black',
+    fontWeight: '400',
+  },
+  giftsSection: {
+    backgroundColor: 'whitesmoke',
+    alignItems: 'center',
+    paddingVertical: hp(2),
+    marginTop: hp(2),
+  },
+  giftsHeaderText: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: hp(3),
+    textAlign: 'center',
+    marginBottom: hp(0.5),
+  },
+  giftsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    paddingHorizontal: wp(2),
+  },
+  giftItemContainer: {
+    width: '30%',
+    alignItems: 'center',
+    marginBottom: hp(2),
+  },
+  giftImage: {
+    width: wp(25),
+    height: hp(20),
+    resizeMode: 'contain',
+  },
+  giftText: {
+    marginTop: hp(1),
+    fontSize: hp(2),
+    textAlign: 'center',
+    color: 'black',
+    letterSpacing: 1,
+  },
+  paymentMethodsContainer: {
+    backgroundColor: 'whitesmoke',
+    marginTop: hp(2),
+  },
+  paymentMethods: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: '5%',
+  },
+  paymentMethodImage: {
+    width: wp(18),
+    height: hp(10),
+    resizeMode: 'contain',
+  },
+  birthdaySection: {
+    backgroundColor: 'white',
+    alignItems: 'center',
+    paddingVertical: hp(2),
+    marginTop: hp(2),
+  },
+  birthdayHeaderText: {
+    fontWeight: 'bold',
+    color: 'black',
+    fontSize: hp(3),
+    textAlign: 'center',
+    marginBottom: hp(2),
+  },
+  birthdayGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    paddingHorizontal: wp(2),
+  },
+  birthdayItemContainer: {
+    width: '30%',
+    alignItems: 'center',
+    marginBottom: hp(2),
+  },
+  birthdayImage: {
+    width: wp(25),
+    height: hp(20),
+
+    resizeMode: 'contain',
+  },
+  birthdayText: {
+    marginTop: hp(1),
+    fontSize: hp(2),
+    textAlign: 'center',
+    color: 'black',
+  },
+  foreverSection: {
+    paddingHorizontal: wp(3),
+    paddingVertical: hp(2),
+  },
+  foreverHeaderText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'black',
+    marginBottom: hp(2),
+    textAlign: 'center',
+  },
+  foreverImage: {
+    width: '100%',
+    height: hp(25),
+    resizeMode: 'cover',
+  },
+  for: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: 'black',
+    marginBottom: hp(2),
+    textAlign: 'center',
+  },
+  shopButton: {
+    backgroundColor: 'white',
+    paddingVertical: hp(1.5),
+    paddingHorizontal: wp(5),
+    borderRadius: 5,
+    marginVertical: hp(2),
+    borderWidth: 1,
+    paddingHorizontal: wp(10),
+    flexDirection: 'row',
+  },
+  shopButtonText: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: hp(2.8),
+  },
+  downArrow: {
+    width: wp(5),
+    height: hp(3),
+    resizeMode: 'contain',
+    marginLeft: wp(13),
+    marginTop: hp(0.3),
+  },
+  contactUsSection: {
+    paddingHorizontal: wp(2),
+    marginVertical: hp(2),
+    backgroundColor: 'whitesmoke',
+  },
+  contactHeader: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: hp(2),
+    color: 'black',
+    alignSelf: 'center',
+  },
+  contactContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+  },
+  contactItem: {
+    width: wp('30%'),
+    alignItems: 'center',
+    marginVertical: hp(2),
+  },
+  contactImage: {
+    width: wp(10),
+    height: hp(10),
+    resizeMode: 'contain',
+  },
+  contactText: {
+    textAlign: 'center',
+    fontSize: 16,
+    marginVertical: 2,
+    color: 'black',
+  },
+});
+
 export default App;
-
-const styles = StyleSheet.create({});
-
-// import { StyleSheet, Text, View } from 'react-native'
-// import React from 'react'
-// import Search from './Src/Component/Search'
-// import CustomBtn from './Src/Component/CustomBtn'
-
-// const App = () => {
-//   return (
-//     <View>
-//     <CustomBtn/>
-//     </View>
-//   )
-// }
-
-// const styles = StyleSheet.create({})
-
-
-// export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
